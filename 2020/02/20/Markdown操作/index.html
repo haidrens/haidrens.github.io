@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>Markdown操作 | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Haidrens Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Haidrens Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Markdown操作</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">February 20, 2020&nbsp;&nbsp;12:50:36</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="文章标题"><a href="#文章标题" class="headerlink" title="文章标题"></a>文章标题</h2><p>段落换行：使用两个以上的空格加上回车或者用空行代替<br><strong>粗体文字</strong> ：文字内容前后加上两个星号（<strong>）或者两个下划线（<strong>）<br>__另一种加粗的文字</strong><br>分割线(*</strong>或—或___)</p>
+<hr>
+<hr>
+<p><del>删除线</del>：在需要添加删除线的内容前后加上两个（~~）<br><u>下划线</u>（使用u标签括住需要下划线的内容）<br>脚注：[^要注明的文本]<br>无序列表:(* + -)  </p>
+<ul>
+<li>无序列表<blockquote>
+<p>区块嵌套</p>
+<blockquote>
+<p>区块嵌套</p>
+<blockquote>
+<p>区块嵌套<br>  1.数字标签1<br>  2.数字标签2<br>  3.数字标签3<br>有序列表（数字+.+标题内容）  </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>数字标签  </li>
+<li>1 分级标签  </li>
+<li>2 分级标签  </li>
+<li>数字标签</li>
+</ol>
+<blockquote>
+<p>区块</p>
+<blockquote>
+<p>区块嵌套</p>
+<blockquote>
+<p>区块嵌套  </p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>单行代码：代码前后添加反单引号<br><code>System.out.println(&quot;helloworld&quot;);</code>  </p>
+<p>代码块：代码前后添加三个反单引号或者4个空格或者1个制表符(Tab键)，可以添加代码语言（添加之后编辑的时候字体会自动变色）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"HelloWord"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>public static void main(String args[]){
+    System.out.println(&quot;HelloWord&quot;);
+}</code></pre><p>Markdown进阶操作：使用HTML标签改变字体颜色和背景颜色</p>
+<p><font face="黑体">我是黑体字</font><br><font face="微软雅黑">我是微软雅黑</font><br><font face="STCAIYUN">我是华文彩云</font><br><font color="red">我是红色</font><br><font color="#008000">我是绿色</font><br><font color="Blue">我是蓝色</font><br><font size="5">我是尺寸</font><br><font face="黑体" color="green" size="5">我是黑体，绿色，尺寸为5</font></p>
+<table><tr><td bgcolor="black">背景色black</td></tr></table>  
+背景黑色，字体红色
+<table><tr><td bgcolor="black"><font color="Red">背景黑色，字体红色</font> </td></tr></table>  
+
+<p>设置图片高度、宽度<br><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" width="50%" height="50%">  </p>
+<p>设置图片位置居左</p>
+<div align="left"><img src="http://pic11.photophoto.cn/20090626/0036036341009653_b.jpg" width="50%" height="50%"></div>
+
+<p>Markdown操作对比图<br><img src="http://m.qpic.cn/psc?/V10krMIi4UK0sT/QlCgJczD4Pcaro11QCoKekrLRdL7A1JEc5goNoyPGhWK7zF6rD4mfYfOWMnB.*esgM7YiDUiqZPWoub51AAd1Q!!/b&bo=KAeHAwAAAAADB4k!&rf=viewer_4"><br><img src="http://m.qpic.cn/psc?/V10krMIi4UK0sT/QlCgJczD4Pcaro11QCoKemIATLw9hucotNf7rL1DzEWrCGg304lUUXtXnLBWUbvIkCM8V6md8CdbofeVnit0GA!!/b&bo=AQeVAgAAAAADJ5M!&rf=viewer_4"><br><img src="http://m.qpic.cn/psc?/V10krMIi4UK0sT/QlCgJczD4Pcaro11QCoKeuNRYeBYdx94x2kWr0QkSs0sRbgsFweUwCX5PPZFuRcK*HpmAOwPAxL7bd*z1HuyFg!!/b&bo=KQcbAwAAAAADJzQ!&rf=viewer_4">  </p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2020/02/20/Markdown操作/">http://yoursite.com/2020/02/20/Markdown操作/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2019/08/21/Markdown的基本操作/">Markdown的基本操作</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
